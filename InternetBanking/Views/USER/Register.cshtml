@@ -1,0 +1,58 @@
+﻿@model InternetBanking.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="SBAccountNumber" class="control-label"></label>
+                <input asp-for="SBAccountNumber" class="form-control" />
+                <span asp-validation-for="SBAccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CIFNumber" class="control-label"></label>
+                <input asp-for="CIFNumber" class="form-control" />
+                <span asp-validation-for="CIFNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchCode" class="control-label"></label>
+                <input asp-for="BranchCode" class="form-control" />
+                <span asp-validation-for="BranchCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredMobileNo" class="control-label"></label>
+                <input asp-for="RegisteredMobileNo" class="form-control" />
+                <span asp-validation-for="RegisteredMobileNo" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@if(ViewBag.Error!=null)
+{
+    <span class ="alert alert-danger">@ViewBag.Error</span>
+}
+
+@if(ViewBag.Success!=null)
+{
+    <span class ="alert alert-success">@ViewBag.Success</span>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

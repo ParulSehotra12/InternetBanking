@@ -1,0 +1,39 @@
+﻿@model InternetBanking.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<h1 style="color:red">@ViewBag.msg</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RequestID" class="control-label"></label>
+                <input asp-for="RequestID" class="form-control" />
+                <span asp-validation-for="RequestID" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="RegisteredMobileNo" class="control-label"></label>
+                <input asp-for="RegisteredMobileNo" class="form-control" />
+                <span asp-validation-for="RegisteredMobileNo" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

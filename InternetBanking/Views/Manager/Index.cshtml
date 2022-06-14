@@ -1,0 +1,55 @@
+﻿@model IEnumerable<InternetBanking.Models.RegisterViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer List</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SBAccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CIFNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BranchCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisteredMobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SBAccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CIFNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BranchCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisteredMobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RequestID">Edit</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
